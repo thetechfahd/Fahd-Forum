@@ -13,7 +13,8 @@ Class Core {
             unset($url[0]);
         }
 
-        require_once '../app/controllers' . $this->currentController . '.php';
+        require_once '../app/controllers/' . $this->currentController . '.php';
+        $this->currentController = new $this->currentController;
     }
 
     public function getUrl(){
