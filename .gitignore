@@ -1,5 +1,6 @@
 # Ignore the config file
 config.php
+/app/config/config.php
 
 # Ignore node_modules folder
 node_modules
