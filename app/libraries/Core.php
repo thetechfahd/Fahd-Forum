@@ -31,7 +31,7 @@
 
       // Check for second part of url
       if(isset($url[1])){
-        $this->currentController = 'Err';
+       
         // Check to see if method exists in controller
         if(method_exists($this->currentController, $url[1])){
           $this->currentMethod = $url[1];
