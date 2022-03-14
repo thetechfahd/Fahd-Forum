@@ -1,0 +1,58 @@
+cite {
+  background: #f9f9f9;
+  border-left: 10px solid darkred;
+  quotes: "\201C""\201D""\2018""\2019";
+  color: darkred;
+}
+cite:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 3em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+  color: darkred;
+}
+cite p {
+  display: inline;
+
+}
+
+
+ul.share-buttons{
+  list-style: none;
+  padding: 0;
+}
+
+ul.share-buttons li{
+  display: inline;
+}
+
+ul.share-buttons .sr-only {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+
+blockquote {
+  margin: 1px;
+  background-color: #CBD8BF;
+  border: 0.1px black solid;
+  padding: 10px;
+  border-radius: 10px;
+  word-break: break-word;
+  font-size: 15px;
+}
+blockquote {
+  display: block;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 1px;
+  -webkit-margin-end: 1px;
+}

@@ -1,0 +1,171 @@
+
+* 									{ margin: 0; padding: 0; }
+#page-wrap							{ width: 800px; margin: 25px auto; } 
+a									{ text-decoration: none; }
+ul									{ list-style: none; }
+p                                   { margin: 15px 0; }
+
+/* 
+	LEVEL ONE
+*/
+ul.dropdown                         { position: relative; }
+ul.dropdown li                      { font-weight: bold; float: left; zoom: 1; background: #ccc; }
+ul.dropdown a:hover		            { color: #000; }
+ul.dropdown a:active                { color: #ffa500; }
+ul.dropdown li a                    { display: block; padding: 4px 8px; border-right: 1px solid #333;
+	 								  color: #222; }
+ul.dropdown li:last-child a         { border-right: none; } /* Doesn't work in IE */
+ul.dropdown li.hover,
+ul.dropdown li:hover                { background: #F3D673; color: black; position: relative; }
+ul.dropdown li.hover a              { color: black; }
+
+
+/* 
+	LEVEL TWO
+*/
+ul.dropdown ul 						{ width: 220px; visibility: hidden; position: absolute; top: 100%; left: 0; }
+ul.dropdown ul li 					{ font-weight: normal; background: #f6f6f6; color: #000; 
+									   float: none; }
+									  
+                                    /* IE 6 & 7 Needs Inline Block */
+ul.dropdown ul li a					{ border-right: none; width: 100%; display: inline-block; } 
+
+/* 
+	LEVEL THREE
+*/
+ul.dropdown ul ul 					{ left: 100%; top: 0; }
+ul.dropdown li:hover > ul 			{ visibility: visible; }
+
+
+@media (min-width: 360px) and (max-width: 979px) { 
+    
+    #autorizeimg {
+        height: 300px;
+        width: 300px;
+    }
+    
+}
+
+table.boards h2 {
+    color: #fff;
+    text-decoration: none !important;
+}
+
+
+/* new styles from all doo */
+
+@media (min-width: 360px) and (max-width: 979px) { 
+    
+    #autorizeimg {
+        height: 300px;
+        width: 350px;
+    }
+    
+}
+  	      	    @media (min-width: 980px) and (max-width: 1250px) { 
+    
+    #autorizeimg {
+        height: 420px;
+        width: 900px;
+    }
+    
+}
+
+
+
+#page-navi
+{
+  list-style: none;
+  display: inline-block;
+}
+#page-navi ul li
+{
+  list-style: none;
+  display: inline-block;
+}
+li
+{
+  display: inline-block;
+}
+
+
+.margin-none {
+    margin: 0px !important;
+}
+
+.alert-choose {
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 8px solid rgb(76, 175, 80);
+}
+.alert {
+    margin-bottom: 18px;
+    padding: 15px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: initial;
+    border-radius: 2px;
+}
+* {
+    box-sizing: border-box;
+}
+div {
+    display: block;
+}
+ul.share-buttons{
+  list-style: none;
+  padding: 0;
+}
+
+ul.share-buttons li{
+  display: inline;
+}
+
+ul.share-buttons .sr-only{
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+
+table.boards h2 {
+    color: #fff;
+    text-decoration: none !important;
+}
+
+
+@media (max-width: 360px) {  
+  
+    .searchcss{
+    
+       width : 250px !important;
+}
+}  
+  
+ @media only screen and (min-width: 960px) {
+        /* styles for browsers larger than 960px; */
+           .searchcss{
+    
+       width : 900px !important;
+}
+    } 
+
+hr.new1 {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+#frontpage_a {
+
+    text-decoration: none !important;
+}
