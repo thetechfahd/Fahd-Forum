@@ -6,11 +6,12 @@
    */
   class Core {
     protected $currentController = 'home';
+    protected $currentController_ = '';
     protected $currentMethod = 'index';
     protected $params = [];
 
     public function __construct(){
-      //print_r($this->getUrl());
+     
 
       $url = $this->getUrl();
  
@@ -24,36 +25,43 @@
         }else{
           //IF IT DOES NOT EXIST, SET THE CONTROLLER TO ERROR [USEFUL WHEN NON AVAILIABLE CONTROLLER IS CALLED IN URL]
           $this->currentController = 'Err';
+          $this->currentMethod = 'index';
         }
       }
 
+      //require the controller file
+      require_once '../app/controllers/'. $this->currentController . '.php';
+
+      // Instantiate controller class
+      $this->currentController = new $this->currentController;
 
 
       // Check for second part of url
       if(isset($url[1])){
-       
-        // Check to see if method exists in controller
+        //Check to see if method exists in controller
         if(method_exists($this->currentController, $url[1])){
+          //set second part of url to current method
           $this->currentMethod = $url[1];
-          // Unset 1 index
+          // // Unset 1 index
           unset($url[1]);
+        }else{         
+          //IF SECOND PART DOESNT EXIST IN CONTROLLER METHOD, SET CONTROLLER TO ERROR CONTROLLER
+          $this->currentController_ = 'Err';
+          
+          //REQUIRE THE ERROR CONTROLLER
+          require_once '../app/controllers/'. $this->currentController_ . '.php';
+
+          // Instantiate controller class
+          $this->currentController = new $this->currentController_;
         }
-        
+
       }
-
-     
-       // Require the controller
-       require_once '../app/controllers/'. $this->currentController . '.php';
-
-       // Instantiate controller class
-       $this->currentController = new $this->currentController;
-
-
 
       // Get params
       $this->params = $url ? array_values($url) : [];
 
       // Call a callback with array of params
+      
       call_user_func_array([$this->currentController, $this->currentMethod], $this->params);
     }
 

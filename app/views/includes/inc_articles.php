@@ -8,7 +8,7 @@
 				      <h2>Trending Post</h2>
 
 					</th>
-				</tr>
+				</tr>-
       
 				<tr>
 					<td class="featured w">

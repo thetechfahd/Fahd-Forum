@@ -1,9 +1,3 @@
-<?php
-
-echo 'error pagedfffffff';
-
-?>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,6 +6,6 @@ echo 'error pagedfffffff';
     <title>Document</title>
 </head>
 <body>
-    <h1>gdgdgdg</h1>
+    <h1>Error Page</h1>
 </body>
 </html>
