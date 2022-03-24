@@ -12,25 +12,27 @@ class UserInfo {
         $this->db->bind(':user_id', $user_id);
 
         $result = $this->db->resultSet();
-        foreach ($result as $r) {
-            $username =  $r->username;
-            $access =  $r->access;
-            $email =  $r->email;
-            $status =  $r->status;
-            $status_change_date =  $r->status_change_date;
-            $status_change_day =  $r->status_change_day;
-            $gender =  $r->gender;
-            $active_since =  $r->activeSince;
-            $registered_date =  $r->registered_date;
-            $location =  $r->location;
-            $personal_text =  $r->personaltext;
-            $signature =  $r->signature;
-            $fb =  $r->fb;
-            $twitter =  $r->twitter;
-            $bday =  $r->birthday;
-            $bmonth =  $r->bmonth;
-            $byear =  $r->byear;
-        }
+        
+        return $result;
+        // foreach ($result as $r) {
+        //     $username =  $r->username;
+        //     $access =  $r->access;
+        //     $email =  $r->email;
+        //     $status =  $r->status;
+        //     $status_change_date =  $r->status_change_date;
+        //     $status_change_day =  $r->status_change_day;
+        //     $gender =  $r->gender;
+        //     $active_since =  $r->activeSince;
+        //     $registered_date =  $r->registered_date;
+        //     $location =  $r->location;
+        //     $personal_text =  $r->personaltext;
+        //     $signature =  $r->signature;
+        //     $fb =  $r->fb;
+        //     $twitter =  $r->twitter;
+        //     $bday =  $r->birthday;
+        //     $bmonth =  $r->bmonth;
+        //     $byear =  $r->byear;
+        // }
     }
 
 

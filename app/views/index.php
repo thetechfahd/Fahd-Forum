@@ -1,20 +1,8 @@
 <?php
 
-/* This is how you echo out database information on the screen
-foreach ($data['users'] as $user) {
-    echo "Information: " . $user->user_name . $user->user_email;
-    echo "<br>";
-}
-*/
-// foreach ($data['para'] as $para) {
-//     echo $para;
-//     echo "<br>";
-
-
-// }
-
-//echo json_encode($data);
 $category_id = 'index';
+
+
 
 require_once APPROOT."/views/includes/theme/head_open.php";
 require_once APPROOT."/views/includes/theme/metatag.php";
@@ -41,7 +29,7 @@ require APPROOT."/views/includes/inc_ads.php";
     <tbody>
         <tr>
             <th>
-            <h2>Trending Post</h2>
+            <h2 style="color:white;font-weight:bold;font-size:20px;">Trending Post</h2>
             </th>
         </tr>
         <tr>
@@ -58,29 +46,30 @@ require APPROOT."/views/includes/inc_ads.php";
                         $title=$article->title;
                         
                         $redirect="$topic_id/$link"; // create friendly seo post link(url)
+                        ?>       
+               
+                    <a id="frontpage_a" href="<?php echo URLROOT."/$redirect"; ?>" style="font-size:12pt">
+                        <div class="each-article"><?php echo ucfirst($title); ?></div>
+                    </a> 
+                    <br>
                         
-                ?>
-                        <a id="frontpage_a" href="<?php echo URLROOT."/$redirect"; ?>" style="font-size:12pt">
-                            <b><?php echo ucfirst($title); ?></b>
-                        </a> 
-                        <br>
-                        
-                    <?php } ?>
+                <?php } ?>                   
             </td>
         </tr>
         <tr>
             <td>
-                <b>(0)</b>
-                <?php if($data['current_page'] >= 2){ ?>
-                <a class="" href="<?php echo URLROOT; ?>/home/news/<?php echo $data['previous_page'] ?>">(<?php echo $data['previous_page'] ?>)</a>
-                <?php } ?>
-                <a class="" href="<?php echo URLROOT; ?>/home/news/<?php echo $data['current_page'] ?>">(<?php echo $data['current_page'] ?>)</a>
-                <?php if($data['current_page'] != $data['end_page']){ ?>
-                <a class="" href="<?php echo URLROOT; ?>/home/news/<?php echo $data['next_page'] ?>">(<?php echo $data['next_page'] ?>)</a>
-                <a class="" href="<?php echo URLROOT; ?>/home/news/<?php echo $data['end_page'] ?>">(Last Page)</a>
-                / <a class="" href="<?php echo URLROOT; ?>/mailsupermods"><b>Mail Supermods</b></a>
-
-                <?php } ?>
+                <?php              
+                    for ($i=$data['start_front']; $i <= $data['end_front']; $i++) { 
+                        echo "<a class='' href=' ".URLROOT."/home/news/".$i."'>($i)</a>";
+                    }
+                ?>
+                <b>(<?php echo $data['current_page'] ?>)</b>
+                 <?php
+                     for ($a = $data['start_back']; $a <= $data['end_back']; $a++) { 
+                        echo "<a class='' href=' ".URLROOT."/home/news/".$a."'>($a)</a>";
+                        
+                    }
+                ?>
             </td>
 
         </tr>

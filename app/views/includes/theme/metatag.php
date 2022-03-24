@@ -9,7 +9,7 @@ if (THEME=='nl_ext') {
 }
 ?>
 
-<link href="<?php echo URLROOT; ?>/feed" rel="alternate" title="<?php echo $page_title; ?>" type="application/rss+xml">
+<link href="<?php echo URLROOT; ?>/feed" rel="alternate" title="<?php echo  $data['title']; ?>" type="application/rss+xml">
 <script type="text/javascript" src="<?php echo ASSETURL; ?>/js/jquery.js"></script>
 <link href="<?php echo ASSETURL; ?>/js/animate.css" rel="stylesheet" type="text/css" />
 
@@ -19,6 +19,7 @@ if (THEME=='nl_ext') {
 <link href="<?php echo ASSETURL; ?>/icons/fontawesome/css/all.css" rel="stylesheet" type="text/css" />
 <script src="<?php echo ASSETURL; ?>/fileupload.js"></script>
 <script src="<?php echo ASSETURL; ?>/js/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script src="<?php echo ASSETURL; ?>/js/toastr.js" type="text/javascript"></script>
 <script src="<?php echo ASSETURL; ?>/bootstrap.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo ASSETURL; ?>/style.css">
 <link rel="stylesheet" type="text/css" href="<?php echo ASSETURL; ?>/css/quote.css">
@@ -26,6 +27,14 @@ if (THEME=='nl_ext') {
 <!-- share plugin -->
 <link rel="stylesheet" href="<?php echo ASSETURL; ?>/sharebtn/needsharebutton.min.css">
 <!-- share plugin end -->
+
+
+
+<link href="<?php echo ASSETURL; ?>/css/toastr.min.css" rel="stylesheet" type="text/css" />
+
+<script src="<?php echo ASSETURL; ?>/js/toastr.min.js" type="text/javascript"></script>
+
+<script src="<?php echo ASSETURL; ?>/js/myjs.js" type="text/javascript"></script>
 
 <meta name="description" content="<?php echo $site_dsc; ?>">
 <meta name="author" content="<?php echo SITENAME; ?>" />
@@ -52,7 +61,7 @@ if (THEME=='nl_ext') {
 <meta name="alexaVerifyID" content="<?php echo ALEXA; ?>">
 <meta name="google-site-verification" content="<?php echo GOOGLE; ?>">
 <meta name="yandex-verify" content="<?php echo YANDEX; ?>">
-<link href="feed" rel="alternate" type="application/rss+xml" title="<?php echo $page_title; ?>">
+<link href="feed" rel="alternate" type="application/rss+xml" title="<?php echo  $data['title']; ?>">
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo ASSETURL; ?>/images/favicon.png">
 <style type="text/css">
          .liked{color: darkgreen !important; font-weight: bold !important;}

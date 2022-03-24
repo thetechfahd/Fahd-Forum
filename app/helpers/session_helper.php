@@ -4,9 +4,9 @@
 
     function loginCheck() {
         if (isset($_SESSION['user_id'])) {
-            return true;
+            return TRUE;
         } else {
-            return false;
+            return FALSE;
         }
     }
 
@@ -16,6 +16,6 @@
             $username=$_SESSION['username']; //Storing USERNAME in SESSION variable.
             $email=$_SESSION['email'];
         } else {
-            return false;
+            return FALSE;
         }
     }

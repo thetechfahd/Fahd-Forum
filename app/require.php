@@ -9,13 +9,7 @@ require_once 'config/config.php';
 include_once APPROOT."/views/includes/functions.php";
 
 require_once 'helpers/session_helper.php';
-
-
-
-
-
-
-
+require_once 'helpers/input_cleaner.php';
 
 
 $core = new Core();

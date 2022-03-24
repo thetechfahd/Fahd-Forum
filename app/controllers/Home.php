@@ -1,18 +1,16 @@
 <?php
 class Home extends Controller {
     public function __construct() {
+
         $this->articlesModel = $this->model('Articles');
-        //$this->userModel = $this->model('User');
     }
 
     public function index() {
         
         $articles = $this->news('1');
-       
-        
         
         $data = [
-            'title' => 'Home page',
+            'title' => 'Homepage',
             'articles' => $articles
         ];
 
@@ -20,20 +18,22 @@ class Home extends Controller {
         $this->view('index', $data);
         //$this->view('index', include_once APPROOT."/views/includes/footer.php");
     }
-    public function news($current_page) {
+    public function news($current_page = 1) {
         $articles = $this->articlesModel->getSiteTrending($current_page);
         
         $data = [
             'title' => 'Home page',
             'articles' => $articles[0],
-            'previous_page' => $articles[1],
-            'next_page' => $articles[2],
-            'end_page' => $articles[3],
-            'current_page' => $articles[4],
+            'start_front' => $articles[1],
+            'end_front' => $articles[2],
+            'start_back' => $articles[3],
+            'end_back' => $articles[4],
+            'current_page' => $articles[5],
+            'end_page' => $articles[6],
         ];
 
         
         $this->view('index', $data);
-        //$this->view('index', include_once APPROOT."/views/includes/footer.php");
+        
     }
 }

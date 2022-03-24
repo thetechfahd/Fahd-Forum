@@ -7,5 +7,6 @@
 </head>
 <body>
     <h1>Error Page</h1>
+    <p><?php echo $data['reason'] ?? ''; ?></p>
 </body>
 </html>

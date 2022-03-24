@@ -11,8 +11,9 @@ class Err extends Controller {
             'title' => 'Error - Page Not Found'
         ];
         
+        //display error view
         $this->view('error', $data);
-        //$this->view('index', include_once APPROOT."/views/includes/footer.php");
+      
     }
 
 

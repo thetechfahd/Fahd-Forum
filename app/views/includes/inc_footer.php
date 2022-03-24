@@ -2,7 +2,7 @@
     <tbody>
         <tr>
             <td>
-                <li><a href="mailto:?subject=<?php echo SITENAME; ?>&body=Welcome to our website!" target="_blank" title="Send email"><img alt="Send email" src="<?php echo APPROOT; ?>/images/Email.png" /></a></li>
+                <li style="list-style-type: none;"><a href="mailto:?subject=<?php echo SITENAME; ?>&body=Welcome to our website!" target="_blank" title="Send email"><img alt="Send email" src="<?php echo ASSETURL; ?>/images/Email.png" /></a></li>
                 </ul>
             </td>
         </tr>

@@ -5,11 +5,14 @@ include_once APPROOT."/models/Userinfo.php";
 
 //print_r ($userinfos->countAd('13'));
 
-if (loginCheck()) {  // if session is called
-	isLoggedIn();
+if (isLoggedIn() !== FALSE) {  // if session is called
+	$userinformation = $userinfos->getUserDetails($_SESSION['user_id']);
+	$FT = $userinfos->countFollowedTopic($_SESSION['user_id']);
+	$FB = $userinfos->countFollowedBoard($_SESSION['user_id']);
+	
 	$gender = "";
 	// switch gender
-	switch ($gender) {
+	switch ($userinformation[0]->gender) {
 		case '1':
 			$gender = '(m)';
 			break;
@@ -20,21 +23,19 @@ if (loginCheck()) {  // if session is called
 			$gender = '(n/a)';
 			break;
 	}
-	echo '<p class="blog-nav"><a href="' . URLROOT . '/u/' . $username . '"><b>' . $username . '</b></a> <span class="m">' . $gender . '</span>:
+	echo '<p class="blog-nav"><a href="' . URLROOT . '/u/' . $userinformation[0]->username . '"><b>' . ucwords($userinformation[0]->username) . '</b></a> <span class="m">' . $gender . '</span>:
 		<a href="' . URLROOT . '/editprofile">Edit Profile</a> |
-		<!--<a href="' . URLROOT . '/Comming-Soon.html"><span title="Posts Shared With Me">SH</span></a> |-->
-		<a href="' . URLROOT . '/followed-topics">FT(' . number_format($countFT) . ')</a> |
-		<a href="' . URLROOT . '/followed-boards">FB(' . number_format($countBD) . ')</a> |
-		<!--<a href="' . URLROOT . '/likes"><span title="My Likes & Shares">L&amp;S</span></a> | 
-		<a href="' . URLROOT . '/following"><span title="Following">FG</span></a> |
-		<a href="' . URLROOT . '/followers"><span title="Followers">FS</span></a> |-->
-		<!---<a href="' . URLROOT . '/trending">Trending</a> |--->
+		<a href="' . URLROOT . '/followed-topics">FT(' . number_format($FT) . ')</a> |
+		<a href="' . URLROOT . '/followed-boards">FB(' . number_format($FB) . ')</a> |
+		<a href="' . URLROOT . '/likes">My Likes & Shares (0)</a> | 
+		<a href="' . URLROOT . '/following">Followed Post(0)</a> |
+		<a href="' . URLROOT . '/followers"><span title="Followers">My Followers(4)</span></a> |
 		<a href="' . URLROOT . '/newest">Newest</a> |
-		<a href="' . URLROOT . '' . $logoutAction . '">Logout</a><br>
+		<a href="' . URLROOT . '/user/logout">Logout</a><br>
 	';
 			// if it is admin show banned topic link
 		
-	if ($access_level == 1){ // get permission
+	if ($userinformation[0]->access == 1){ // get permission
 	
 		echo '<p class="blog-nav" style="text-align:center; color:#000; font-size: 12px !important; margin-top: 20px;">
 			<a href="' . URLROOT . '/admin/list-banned-topics" style="color:#000;">Banned Topics</a> |
@@ -49,17 +50,19 @@ if (loginCheck()) {  // if session is called
 			</p>
 		';
 		// create admin post url
-	}else{
+	}elseif ($userinformation[0]->access == 2){
 		echo '<p class="blog-nav" style="text-align:center; color:#000; background-color:#097470;">
 			<a href="' . URLROOT . '/list-banned-users" style="color:#000;">Users</a> |	
 			<a href="' . URLROOT . '/list-my-board" style="color:#000;">Moderator Board</a> |
 			</p>
 		';
+	}else{
+		//show nothing more
 	}		
 }else{
 	echo '<p class="blog-nav">
-			<a href="' . URLROOT . '/confirm-email">Join <?php echo TRADEMARK; ?></a> |
-			<b><a href="' . URLROOT . '/login">LOGIN!</a></b> |
+			<a href="' . URLROOT . '/user/join">Join '.TRADEMARK.'</a> |
+			<b><a href="' . URLROOT . '/user/login">LOGIN!</a></b> |
 			<!---<a href="' . URLROOT . '/trending">Trending</a> -->
 			<a href="' . URLROOT . '/feed">Feeds</a> |
 		</p>
